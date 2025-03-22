@@ -1,1 +1,1 @@
-# MasterClass (SESSIONS ET COOKIES) en PHP.
+# MasterClass (SESSIONS ET COOKIES) en PHP
