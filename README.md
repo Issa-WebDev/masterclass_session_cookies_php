@@ -1,1 +1,1 @@
-# Register/Login (php)
+# MasterClass (SESSIONS ET COOKIES) en PHP.
