@@ -2,17 +2,18 @@
 session_start();
 
 $error = "";
+$admin = "admin";
+$correct_password = "ffff";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Récupérer et nettoyer les valeur des champs
     $username = htmlspecialchars(trim($_POST['username']));
     $password = htmlspecialchars(trim($_POST["password"]));
 
-    if ($username === "admin" && $password === "ffff") {
+    if ($username === $admin && $password === $correct_password) {
         $_SESSION["username"] = $username;
 
         if (isset($_POST['remember_me'])) {
-            setcookie("remember_me", $username, time() + (86400 * 7), "/");
+            setcookie("remember_me", $username, time() + (86400 * 7));
         }
 
         header("Location: dashboard.php");
@@ -21,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
 }
+
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
