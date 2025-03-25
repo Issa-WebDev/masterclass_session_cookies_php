@@ -23,7 +23,7 @@ if (isset($_SESSION["username"])) {
 <body>
     <div>
         <h1>Bienvenue, <?php echo $username; ?> !</h1>
-        <p>Vous êtes connecté au tableau de bord.</p>
+        <p>Vous êtes connecté à votre  tableau de bord.</p>
 
         <form method="POST" action="logout.php">
             <button type="submit" class="logout-button">Déconnexion</button>

@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-session_unset();
+unset($_SESSION["username"]);
+// session_unset();
 session_destroy();
 
 if (isset($_COOKIE["remember_me"])) {
@@ -9,3 +10,4 @@ if (isset($_COOKIE["remember_me"])) {
 }
 
 header("Location: login.php");
+

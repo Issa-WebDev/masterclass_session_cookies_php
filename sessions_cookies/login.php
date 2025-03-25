@@ -10,10 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = htmlspecialchars(trim($_POST["password"]));
 
     if ($username === $admin && $password === $correct_password) {
+        // creation de clé dans la session
         $_SESSION["username"] = $username;
 
         if (isset($_POST['remember_me'])) {
-            setcookie("remember_me", $username, time() + (86400 * 7));
+            setcookie("remember_me", $username, time() + (3600 * 24 * 7));
         }
 
         header("Location: dashboard.php");
@@ -22,8 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
 }
-
-var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +52,7 @@ var_dump($_SESSION);
                 <label for="remember_me">Se souvenir de moi</label>
             </div>
 
-            <button type="submit">Se connecter</button>
+            <button type="submit" name="submit" value="submit">Se connecter</button>
         </form>
     </div>
 </body>
